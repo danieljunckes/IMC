@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edAltura;
     TextView imc;
     ImageView imagem;
+    SeekBar barra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         edPeso = findViewById(R.id.edPeso);
         imc= findViewById(R.id.imc);
         imagem = findViewById(R.id.ivPeso);
+        barra = findViewById(R.id.seekBar);
     }
 
     public float CalculaIMC(float peso, float altura){
@@ -54,6 +57,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         imc.setText(df.format(IMC));
-
+        barra.setProgress((int) IMC);
     }
 }
